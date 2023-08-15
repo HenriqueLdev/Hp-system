@@ -1,0 +1,67 @@
+body{
+    background-color: #8234b2;
+}
+.reneg-container{
+    background-color: #8234b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+
+}
+
+.reneg-header{
+width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 1rem;
+    font-size: 0.8rem;
+}
+
+#UserName{
+    display: flex;
+align-items: center;
+gap:0.6rem;
+}
+
+.descon-container{
+
+    width: 70vw;
+    height: 60vh;
+    border-radius: 6px;
+    background-color: #f1f1f1;
+    box-shadow: 2px 2px 2px 2px #111 ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.userDescon{
+    margin-top: 2rem;
+display: flex;
+flex-direction: column;
+gap: 0.4rem;
+justify-content: center;
+align-items: center;
+color: #e026d4;
+}
+
+.values-reneg{
+  display: inline-flex;
+}
+.debito-info{
+ width: 60vw;
+ padding: 10px;
+ box-shadow: 2px 1px 1px #111;
+border-radius: 4px;
+}
+
+.acAcordo{
+   text-align: center;
+}
+.acAcordo button{
+    background: #a11c98;
+}
