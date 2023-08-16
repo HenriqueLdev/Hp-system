@@ -70,7 +70,7 @@ const Reneg = () => {
 
           <>
             <button onClick={openModal}>Vencimento do boleto</button>
-            <button onClick>Gerar acordo</button>
+            <button onClick={openModalSmsEmail}>Gerar acordo</button>
 
             <div className="boleto-info">
               <p>Vencimento: {selectedDate ? selectedDate.toLocaleDateString() : ''}</p>
