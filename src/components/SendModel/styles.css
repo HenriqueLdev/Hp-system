@@ -64,3 +64,23 @@
     width: 50px;
     height: 50px;
   }
+  .rotating-hourglass {
+    display: inline-block;
+    animation: rotate 2s linear infinite;
+  }
+  
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  #load-close{
+    border: none;
+    border-radius: 2px;
+    padding: 4px;
+    color: #fff;
+    background-color: rgb(231, 27, 27);
+  }
