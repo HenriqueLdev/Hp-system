@@ -9,6 +9,7 @@ Modal.setAppElement('#root');
 const SendModel = ({ isOpen, onRequestClose, onSend }) => {
   const [email, setEmail] = useState('');
   const [sms, setSms] = useState('');
+  const [loading,setLoading]=useState(true)
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -21,14 +22,20 @@ const SendModel = ({ isOpen, onRequestClose, onSend }) => {
   const handleSend = () => {
     onSend(email, sms);
     onRequestClose();
+    if(loading === true){
+      setLoading(false)
+    }
+    if (loading === false){
+      setLoading(true)
+    }
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
+    <Modal isOpen={isOpen}
       onRequestClose={onRequestClose}
-      contentLabel="Enviar Notificação"
+      contentLabel="Formalizar acordo"
     >
+      { loading ? (<>
       <h2 id='send-title'>Formalização de acordo</h2>
 <div className='informative'>
 <p>Gerendo um boleto para quitação do seu  contrato consignado de nº12323216 no valor de 60 com vencimento para o dia 00/00/0000</p>
@@ -45,9 +52,15 @@ const SendModel = ({ isOpen, onRequestClose, onSend }) => {
         <input type="text" value={sms} onChange={handleSmsChange} />
       </div>
       <button  id='confirm-btn' onClick={handleSend}><GiConfirmed/></button>
-      <button  id='close-btn' onClick={onRequestClose}><AiFillCloseCircle/></button>
-    </Modal>
-  );
-};
+      <button  id='close-btn' onClick={onRequestClose}><AiFillCloseCircle/></button></>)
+      : <>
+      
+      <h2>Formalizando acordo</h2>
+      </>
+    }
+    </Modal>)
+  
+  
+}
 
 export default SendModel
