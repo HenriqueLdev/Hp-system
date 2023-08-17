@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal'
+import{GiConfirmed} from 'react-icons/gi'
+import {AiFillCloseCircle} from 'react-icons/ai'
 import './styles.css'
 
 Modal.setAppElement('#root');
@@ -27,7 +29,13 @@ const SendModel = ({ isOpen, onRequestClose, onSend }) => {
       onRequestClose={onRequestClose}
       contentLabel="Enviar Notificação"
     >
-      <h2>Enviar Notificação</h2>
+      <h2 id='send-title'>Formalização de acordo</h2>
+<div className='informative'>
+<p>Gerendo um boleto para quitação do seu  contrato consignado de nº12323216 no valor de 60 com vencimento para o dia 00/00/0000</p>
+
+<span className='warning'>Caso haja uma quebra de acordo não havera possibilidade de novos acordos</span>
+</div>
+
       <div>
         <label>Email:</label>
         <input type="text" value={email} onChange={handleEmailChange} />
@@ -36,8 +44,8 @@ const SendModel = ({ isOpen, onRequestClose, onSend }) => {
         <label>SMS:</label>
         <input type="text" value={sms} onChange={handleSmsChange} />
       </div>
-      <button onClick={handleSend}>Enviar</button>
-      <button onClick={onRequestClose}>Fechar</button>
+      <button  id='confirm-btn' onClick={handleSend}><GiConfirmed/></button>
+      <button  id='close-btn' onClick={onRequestClose}><AiFillCloseCircle/></button>
     </Modal>
   );
 };

@@ -1,11 +1,31 @@
 .dateb{
 
     width: 70px;
-    height: 20px;
+    height: 40px;
     border-radius: 6px;
     border: none;
     background-color: rgb(160, 29, 212);
     margin-left: 1rem;
     color: #ffff;
+    padding: 10px;
 
+}
+.custom-calendar{
+    font-size: 0.6rem;
+    width: 10rem;
+}
+
+
+.react-calendar__month-view__days abbr{
+    font-size: 0.6rem;
+}
+.react-calendar__navigation__label__labelText span{
+    font-size: 2rem;
+}
+.react-calendar__navigation button{
+   min-width: 15px;
+}
+
+.react-calendar__navigation__label__labelText span{
+    font-size: 0.4rem;
 }

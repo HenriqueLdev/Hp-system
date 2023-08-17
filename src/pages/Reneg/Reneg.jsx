@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './styles.css';
 import { FaUserCircle } from 'react-icons/fa';
 import { AiFillFire } from 'react-icons/ai';
+import {BsFillCalendarEventFill} from 'react-icons/bs'
+import {FaHandshake} from 'react-icons/fa'
 import CalendarModal from '../../components/CalendarModal';
 import SendModel from '../../components/SendModel';
 
@@ -69,12 +71,12 @@ const Reneg = () => {
           </div>
 
           <>
-            <button onClick={openModal}>Vencimento do boleto</button>
-            <button onClick={openModalSmsEmail}>Gerar acordo</button>
-
+            <button onClick={openModal}><BsFillCalendarEventFill fontSize={25}/></button>
+            <span className='actions'>Vencimento de acordo</span>
+            <button onClick={openModalSmsEmail}><FaHandshake fontSize={25}/></button>
+            <span className='actions'>Confirmar acordo</span>
             <div className="boleto-info">
               <p>Vencimento: {selectedDate ? selectedDate.toLocaleDateString() : ''}</p>
-              <p>Valor: 100</p>
             </div>
           </>
 <SendModel isOpen={modalSmsEmailIsOpen} onRequestClose={closeModalSmsEmail} onSend={handleSendNotification}/>

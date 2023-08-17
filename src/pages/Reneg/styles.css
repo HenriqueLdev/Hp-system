@@ -34,7 +34,7 @@ padding: 1rem;
 
 .descon-container{
 
-    width: 70vw;
+    max-width:63vw;
     max-height: 100vh;
     border-radius: 6px;
     background-color: #f1f1f1;
@@ -47,8 +47,8 @@ padding: 1rem;
 }
 .descon-container button{
     
-    max-width: 160px;
-    height: 36px;
+    width: 50px;
+    height: 50px;
     text-align: center;
     padding: 2px;
     background-color: #4002B3;
@@ -70,7 +70,7 @@ color: #e026d4;
   display: inline-flex;
 }
 .debito-info{
- width: 60vw;
+ max-width: 60vw;
  padding: 10px;
  box-shadow: 2px 1px 1px #111;
 border-radius: 4px;
@@ -95,3 +95,7 @@ border-radius: 4px;
     margin-top: 2rem;
 }
 
+.actions{
+    font-size: 0.6rem;
+    color:#4002B3;
+}

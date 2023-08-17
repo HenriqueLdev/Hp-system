@@ -29,10 +29,10 @@ const CalendarModal = ({ isOpen, onRequestClose, onDateSelect }) => {
       contentLabel="Vencimento de boleto"
     >
       <h2>Selecione uma data:</h2>
-      <Calendar  onChange={handleDateChange} value={selectedDate} minDate={minDate} maxDate={maxDate} />
-      <p>Data selecionada: {selectedDate.toLocaleDateString()}</p>
-      <button  className='dateb'onClick={handleSelect}>Selecionar</button>
-      <button className='dateb' onClick={onRequestClose}>Fechar</button>
+      <Calendar className='custom-calendar'  onChange={handleDateChange} value={selectedDate} minDate={minDate} maxDate={maxDate} />
+
+      <button  className='dateb'onClick={handleSelect}></button>
+  
     </Modal>
   );
 };
