@@ -31,7 +31,7 @@ const CalendarModal = ({ isOpen, onRequestClose, onDateSelect }) => {
       <h2>Selecione uma data:</h2>
       <Calendar className='custom-calendar'  onChange={handleDateChange} value={selectedDate} minDate={minDate} maxDate={maxDate} />
 
-      <button  className='dateb'onClick={handleSelect}></button>
+      <button  className='dateb'onClick={handleSelect}>Agendar</button>
   
     </Modal>
   );
