@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './styles.css';
 import { FaUserCircle } from 'react-icons/fa';
 import { AiFillFire } from 'react-icons/ai';
@@ -6,11 +6,20 @@ import {BsFillCalendarEventFill} from 'react-icons/bs'
 import {FaHandshake} from 'react-icons/fa'
 import CalendarModal from '../../components/CalendarModal';
 import SendModel from '../../components/SendModel';
+import { UserContext } from '../../Context/UserContext';
+
+
+
 
 const Reneg = () => {
+
+  const {client } = useContext(UserContext);
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
 
+
+ 
   const openModal = () => {
     setModalIsOpen(true);
   };
@@ -40,16 +49,10 @@ const Reneg = () => {
   return (
     <>
       <div className="reneg-container">
-        <div className="reneg-header">
-          <p id="UserName">
-            <FaUserCircle fontSize={24} /> Paulo Sergio
-          </p>
-          <p id="UserCpf">CPF: 000-000-000-00</p>
-          <p id="ContraId">Seu contrato : 1213430282</p>
-        </div>
+       
 
         <div className="reneg-intro">
-          <p>Paulo você foi contemplado com 60% de desconto!</p>
+          <p>{client.nomeCompleto} você foi contemplado(a) com 60% de desconto!</p>
           <p>
             Escolha uma data dentro da nossa ossada e uma forma de envio do seu boleto{' '}
           </p>
@@ -61,12 +64,12 @@ const Reneg = () => {
           </div>
 
           <div className="values-reneg">
-            <p>de: 100 por: 60</p>
+            <p>de: {client.valor}R$ por: { client.valor - client.valor / 100 * client.desconto}R$</p>
           </div>
 
           <div className="debito-info">
-            <p>Parcelas: 2</p>
-            <p>Atraso: 120 dias</p>
+            <p>Parcelas: {client.parcelas}</p>
+            <p>Atraso: {client.diasEmAtraso}</p>
             <p>Modalidade : Quitação de contrato</p>
           </div>
 

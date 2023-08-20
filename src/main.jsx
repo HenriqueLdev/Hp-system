@@ -5,7 +5,7 @@ import './index.css'
 import {createBrowserRouter, RouterProvider,} from 'react-router-dom'
 import About from './pages/About/About.jsx'
 import Reneg from './pages/Reneg/Reneg.jsx'
-
+import { UserProvider } from './Context/UserContext.jsx'
 
 const Router=createBrowserRouter([
 {
@@ -24,6 +24,8 @@ const Router=createBrowserRouter([
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+  <UserProvider>
     <RouterProvider router={Router}></RouterProvider>
+    </UserProvider>
   </React.StrictMode>,
 )
