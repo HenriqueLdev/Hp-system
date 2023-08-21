@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../Context/UserContext';
 import './styles.css';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
 import clientsData from '../../../mock';
 
 const Form = () => {
   const { cpf, setCpf, client,setClient } = useContext(UserContext);
-
+const [error,setError]=useState(false)
   const onCpfChange = (e) => {
     const inputValue = e.target.value;
     setCpf(inputValue);
@@ -20,7 +20,10 @@ const Form = () => {
     const foundClient = clientsData.find(client => client.cpf.replace(/\D/g, '') === normalizedCPF);
     setClient(foundClient)
   console.log(client)
-    return foundClient || null;
+    if(foundClient==null){
+      setError(true)
+    }
+  // return Navigate('/reneg')
   };
 
   return (
@@ -36,9 +39,10 @@ const Form = () => {
           placeholder="XXX.XXX.XXX-XX"
           onChange={(e) => onCpfChange(e)}
         />
-        <Link to='/renegociar'>
-          <button onClick={() => setClient(findClient(cpf))}>Consultar</button>
-        </Link>
+          <button onClick={(e) => {
+            e.preventDefault()
+            setClient(findClient(cpf))}}>Consultar</button>
+        {error ? <span>CPF NÃO ENCONTRADO</span> : null}
         <ReCAPTCHA sitekey="Your client site key" />
       </form>
     </div>
