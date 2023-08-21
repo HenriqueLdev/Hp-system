@@ -17,7 +17,7 @@ const Router=createBrowserRouter([
   element:<About/>
 },
 {
-  path:'renegociar',
+  path:'/renegociar',
   element:<Reneg/>
 }
 

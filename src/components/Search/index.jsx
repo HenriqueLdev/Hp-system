@@ -1,29 +1,44 @@
 import React, { useContext, useState } from 'react';
 import { UserContext } from '../../Context/UserContext';
 import './styles.css';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
 import clientsData from '../../../mock';
 
 const Form = () => {
   const { cpf, setCpf, client,setClient } = useContext(UserContext);
 const [error,setError]=useState(false)
+const navigate= useNavigate()
   const onCpfChange = (e) => {
     const inputValue = e.target.value;
     setCpf(inputValue);
     console.log(cpf)
   };
 
-  const findClient = (iCpf) => {
-    const normalizedCPF = iCpf.replace(/\D/g, ''); 
-
-    const foundClient = clientsData.find(client => client.cpf.replace(/\D/g, '') === normalizedCPF);
+const findClient=(iCpf)=>{
+  const normalizedCPF = iCpf.replace(/\D/g, ''); 
+  const foundClient = clientsData.find(client => client.cpf.replace(/\D/g, '') === normalizedCPF);
+  
+  if(foundClient){
     setClient(foundClient)
-  console.log(client)
-    if(foundClient==null){
+  }
+}
+
+  const handleForm = (iCpf) => {
+    
+
+  
+  findClient(iCpf)
+    
+    
+  if(client){
+console.log(client)
+    navigate('/renegociar')
+  }
+console.log(client,'cliente')
+    if(client==null){
       setError(true)
     }
-  // return Navigate('/reneg')
   };
 
   return (
@@ -39,9 +54,9 @@ const [error,setError]=useState(false)
           placeholder="XXX.XXX.XXX-XX"
           onChange={(e) => onCpfChange(e)}
         />
-          <button onClick={(e) => {
+          <button onClick={(e) =>{
             e.preventDefault()
-            setClient(findClient(cpf))}}>Consultar</button>
+            handleForm(cpf)}}>Consultar</button>
         {error ? <span>CPF NÃO ENCONTRADO</span> : null}
         <ReCAPTCHA sitekey="Your client site key" />
       </form>

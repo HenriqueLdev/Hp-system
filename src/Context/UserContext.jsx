@@ -5,7 +5,7 @@ export const UserContext= createContext()
 
 export const UserProvider=({children})=>{
     const [cpf,setCpf] = useState('')
-    const [client,setClient]=useState('')
+    const [client,setClient]=useState(null)
     return(
         <UserContext.Provider value={{cpf,setCpf,client,setClient}}>
             {children}
