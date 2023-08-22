@@ -8,6 +8,7 @@ import clientsData from '../../../mock';
 const Form = () => {
   const { cpf, setCpf, client,setClient } = useContext(UserContext);
 const [error,setError]=useState(false)
+const [loading,setLoading]=useState(false)
 const navigate= useNavigate()
   const onCpfChange = (e) => {
     const inputValue = e.target.value;
@@ -15,13 +16,17 @@ const navigate= useNavigate()
     console.log(cpf)
   };
 
-const findClient=(iCpf)=>{
+const findClient= async (iCpf)=>{
   const normalizedCPF = iCpf.replace(/\D/g, ''); 
-  const foundClient = clientsData.find(client => client.cpf.replace(/\D/g, '') === normalizedCPF);
+   const foundClient =  clientsData.find(client => client.cpf.replace(/\D/g, '') === normalizedCPF);
   
   if(foundClient){
-    setClient(foundClient)
+     setClient(foundClient)
   }
+
+    if(foundClient===undefined){
+      setError(true)
+    }
 }
 
   const handleForm = (iCpf) => {
@@ -32,13 +37,8 @@ const findClient=(iCpf)=>{
     
     
   if(client){
-console.log(client)
     navigate('/renegociar')
   }
-console.log(client,'cliente')
-    if(client==null){
-      setError(true)
-    }
   };
 
   return (
