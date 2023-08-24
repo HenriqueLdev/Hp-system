@@ -52,7 +52,7 @@ const Reneg = () => {
        
 
         <div className="reneg-intro">
-          <p>{client.nomeCompleto} você foi contemplado(a) com 60% de desconto!</p>
+          <p>{client.nomeCompleto} você foi contemplado(a) com {client.desconto}% de desconto!</p>
           <p>
             Escolha uma data dentro da nossa ossada e uma forma de envio do seu boleto{' '}
           </p>
@@ -60,7 +60,7 @@ const Reneg = () => {
 
         <div className="descon-container">
           <div className="userDescon">
-            <AiFillFire fontSize={35} /> <p>60% de desconto</p>
+            <AiFillFire fontSize={35} /> <p>{client.desconto}% de desconto</p>
           </div>
 
           <div className="values-reneg">
