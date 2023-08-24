@@ -64,6 +64,8 @@ const Reneg = () => {
           </div>
 
           <div className="values-reneg">
+
+            <span id='numContrato'>n°{client.contrato}</span>
             <p>de: {client.valor}R$ por: { client.valor - client.valor / 100 * client.desconto}R$</p>
           </div>
 
