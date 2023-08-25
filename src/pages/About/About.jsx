@@ -52,7 +52,7 @@ de acordo com alguns requisitos você poderá realizar a quitação do seu contr
         Como posso ver os descontos disponíveis?
     </p>
 
-    <p> Consulte ofertas exclusivas feitas especialmente para você no <Link to='/renegociar'>hpSystem</Link></p>
+    <p> Consulte ofertas exclusivas feitas especialmente para você no <Link to='/renegociar'><span id='hpconsul'>hpSystem</span></Link></p>
 </div>
         </div>
         <Footer/>

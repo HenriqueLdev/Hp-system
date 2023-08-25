@@ -47,8 +47,18 @@ font-size: 1rem;
 .info-desc{
     font-size: 0.6rem;
 }
+#hpconsul{
+    color: #7308FC;
+}
 
 
+.rules{
+    background-color: #7308FC;
+    color:#fff;
+    border-radius: 4px;
+    max-height: 1.8rem;
+    width: 15rem;
+}
 
 @media (min-width:600px) {
     .info-card{
