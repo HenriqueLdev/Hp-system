@@ -9,7 +9,10 @@ const About =()=>{
         
         <Header/>
         <div className="information">
-<h3>Saiba um pouco sobre nós</h3>
+ 
+ <div className='about-title'>
+    <p>Sobre nós</p>
+ </div>
 
 <div className="info-card">
 
@@ -17,8 +20,10 @@ const About =()=>{
         O que é a hp system
     </p>
     <p className="info-desc">
-Somos uma fintech parceira ddo banco DV com foco no cliente , nos da hp system junto com o banco DV criamos uma oportunidade
-única para nossos clientes que não poderam pagar seus empréstimos por conto de imprevistos  ou problemas financeiros estarem
+Somos uma fintech parceira do banco DV com foco no cliente.Nós da hp system junto com o banco DV criamos uma oportunidade
+<br />
+única para nossos clientes que não poderam pagar seus empréstimos por conta de imprevistos  ou problemas financeiros estarem
+<br />
 mantendo um bom relacionamento com o banco DV e mantendo seu nome limpo se livrando de ligações e mensagens de cobrança e dando
 descontos especiais e personalizados para cada cliente
     </p>
@@ -34,12 +39,12 @@ de acordo com alguns requisitos você poderá realizar a quitação do seu contr
 
     </p>
 
-    <ul>
-        <li> Parcelas entre 15 e 190 dias em atraso</li>
-        <li>Já ter feito o pagamento de alguma parcela anteriormente</li>
-        <li>Nunca ter pagado com desconto antes</li>
-        <li>Valor mínimo devido de 400 reais</li>
-    </ul>
+    
+        <div className='rules'> 1° Parcelas entre 15 e 190 dias em atraso</div>
+        <div className='rules'> 2º Já ter feito o pagamento de alguma parcela anteriormente</div>
+        <div className='rules'> 3º Nunca ter pagado com desconto antes</div>
+        <div className='rules'> 4º Valor mínimo devido de 400 reais</div>
+    
 </div>
 
 <div className="info-card">
