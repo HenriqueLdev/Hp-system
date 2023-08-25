@@ -1,20 +1,22 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Modal from 'react-modal';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import './styles.css'
+import { UserContext } from '../../Context/UserContext';
 
 Modal.setAppElement('#root');
 
 const CalendarModal = ({ isOpen, onRequestClose, onDateSelect }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
-
+const {setVencimento}=useContext(UserContext)
   const handleDateChange = (date) => {
     setSelectedDate(date);
   };
 
   const handleSelect = () => {
     onDateSelect(selectedDate);
+setVencimento(selectedDate)
     onRequestClose();
   };
 

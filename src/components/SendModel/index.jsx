@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Modal from 'react-modal'
 import{GiConfirmed} from 'react-icons/gi'
 import {AiFillCloseCircle} from 'react-icons/ai'
 import { FaHourglass } from 'react-icons/fa';
 import {GoIssueClosed} from 'react-icons/go'
 import './styles.css'
+import { UserContext } from '../../Context/UserContext';
 
 Modal.setAppElement('#root');
 
@@ -12,6 +13,7 @@ const SendModel = ({ isOpen, onRequestClose, onSend }) => {
   const [email, setEmail] = useState('');
   const [sms, setSms] = useState('');
   const [loading,setLoading]=useState(true)
+const {client,vencimento} =useContext(UserContext)
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -40,7 +42,7 @@ const SendModel = ({ isOpen, onRequestClose, onSend }) => {
      
       <h2 id='send-title'>Formalização de acordo</h2>
 <div className='informative'>
-<p>Gerendo um boleto para quitação do seu  contrato consignado de nº12323216 no valor de 60 com vencimento para o dia 00/00/0000</p>
+<p>Gerendo um boleto para quitação do seu  contrato consignado de nº{client.contrato} no valor de {client.valor - client.valor / 100 * client.desconto}R$ com vencimento para o dia {vencimento.toLocaleDateString()}</p>
 
 <span className='warning'>Caso haja uma quebra de acordo não havera possibilidade de novos acordos</span>
 </div>
