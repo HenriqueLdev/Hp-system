@@ -71,6 +71,11 @@ font-size: 25px;
     width: 60px;
     height: 60px;
   }
+
+  #error{
+    color: red;
+    font-size: 0.6rem;
+  }
   .rotating-hourglass {
     display: inline-block;
     animation: rotate 2s linear infinite;

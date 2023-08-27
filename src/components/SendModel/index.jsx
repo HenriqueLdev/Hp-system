@@ -14,7 +14,7 @@ const SendModel = ({ isOpen, onRequestClose, onSend }) => {
   const [sms, setSms] = useState('');
   const [loading,setLoading]=useState(true)
 const {client,vencimento} =useContext(UserContext)
-
+const [error,setError]=useState(false)
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
   };
@@ -24,6 +24,13 @@ const {client,vencimento} =useContext(UserContext)
   };
 
   const handleSend = () => {
+    var phonePattern = /^[0-9]{10}$/;
+    var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+    if(!phonePattern.test(sms) || !emailPattern.test(email)){
+      setError(true)
+      return
+    }
+   
     onSend(email, sms);
    // onRequestClose();
     if(loading === true){
@@ -49,12 +56,13 @@ const {client,vencimento} =useContext(UserContext)
 
       <div>
         <label>Email:</label>
-        <input type="text" value={email} onChange={handleEmailChange} />
+        <input type="text" value={email} onChange={handleEmailChange} pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" required />
       </div>
       <div>
         <label>SMS:</label>
-        <input type="text" value={sms} onChange={handleSmsChange} />
+        <input type="text" value={sms} onChange={handleSmsChange} pattern="[0-9]{10}" required />
       </div>
+      {error? <span id='error'>Preencha os campos corretamente </span>:''}
       <button  id='confirm-btn' onClick={handleSend}><GiConfirmed/></button>
       <button  id='close-btn' onClick={onRequestClose}><AiFillCloseCircle/></button>
    
