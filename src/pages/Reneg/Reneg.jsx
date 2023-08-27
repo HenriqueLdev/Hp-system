@@ -78,8 +78,8 @@ const Reneg = () => {
           <>
             <button onClick={openModal}><BsFillCalendarEventFill fontSize={25}/></button>
             <span className='actions'>Vencimento de acordo</span>
-            <button onClick={openModalSmsEmail}><FaHandshake fontSize={25}/></button>
-            <span className='actions'>Confirmar acordo</span>
+            <button onClick={ selectedDate ? openModalSmsEmail : openModal}><FaHandshake fontSize={25}/></button>
+             <span className='actions'>Confirmar acordo</span> 
             <div className="boleto-info">
               <p>Vencimento: {selectedDate ? selectedDate.toLocaleDateString() : ''}</p>
             </div>
