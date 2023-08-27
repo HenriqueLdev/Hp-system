@@ -42,6 +42,13 @@ box-shadow: 9px 9px #ccc ;
     text-shadow: 1px #111 ;
 }
 .info-title{
+    max-width: 10rem;
+    max-height: 4rem;
+    padding: 6px;
+    border-radius: 6px;
+    background-color: #7308FC;
+    box-shadow: 10px 10px #ccc;
+    color: #ffff;
 font-size: 1rem;
 }
 .info-desc{
@@ -63,7 +70,12 @@ font-size: 1rem;
 
 @media (min-width:600px) {
     .info-card{
-        width: 20vw;
+        width: 34vw;
+        height: 50vh;
+    }
+
+    .info-desc{
+        font-size: 1rem;
     }
     
     .info-card ul {

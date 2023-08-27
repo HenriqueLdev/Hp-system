@@ -17,6 +17,7 @@ const {setVencimento}=useContext(UserContext)
   const handleSelect = () => {
     onDateSelect(selectedDate);
 setVencimento(selectedDate)
+
     onRequestClose();
   };
 
