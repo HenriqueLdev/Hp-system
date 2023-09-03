@@ -8,7 +8,9 @@ const Header=()=>{
         <>
         <header>
 <img id="logo" src={Hpsys} alt="hpsys-logo" />
-            <nav><Link to='/about'><a href="#">Saber mais</a></Link></nav>
+            <nav><Link to='/about'><a href="#">Saber mais</a></Link>
+            <Link to='/renegociar'><div className="reneg-btn">Gerar acordo</div></Link>
+            </nav>
         </header>
         </>
     )

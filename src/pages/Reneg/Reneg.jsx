@@ -70,7 +70,7 @@ const Reneg = () => {
           </div>
 
           <div className="debito-info">
-            <p>Parcelas: {client.parcelas}</p>
+            <p>Parcelas: {client.parcelas.length}</p>
             <p>Atraso: {client.diasEmAtraso}</p>
             <p>Modalidade : Quitação de contrato</p>
           </div>
@@ -82,6 +82,10 @@ const Reneg = () => {
              <span className='actions'>Confirmar acordo</span> 
             <div className="boleto-info">
               <p>Vencimento: {selectedDate ? selectedDate.toLocaleDateString() : ''}</p>
+            </div>
+
+            <div className="parcelas-container">
+              <Parcelas/>
             </div>
           </>
 <SendModel isOpen={modalSmsEmailIsOpen} onRequestClose={closeModalSmsEmail} onSend={handleSendNotification}/>
